@@ -1,6 +1,7 @@
 package raisetech.NewStudent.Management;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -51,7 +52,7 @@ public class Application {
 
 	// ■ Map一覧表示（練習用）
 	@GetMapping("/students")
-	public Map<String, String> getStudents() {
-		return studentMap;
+	public List<Student> getAllStudents() {
+		return repository.findAll();
 	}
 }
