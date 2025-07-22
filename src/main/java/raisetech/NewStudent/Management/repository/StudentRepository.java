@@ -44,7 +44,11 @@ public interface StudentRepository {
   @Select("SELECT * FROM students_courses WHERE course_name = 'Javaコース'")
   List<StudentCourses> findJavaCourses();
 
-  @Insert("INSERT INTO students(name,kana_name,nickname,email,area,age,remark,isDeleted) VALUES(#{name},#{kanaName},#{nickname},#{email},#{area},#{age},#{remark},false)")
+  @Insert("INSERT INTO students(name,kana_name,nickname,email,area,age,remark,isDeleted) VALUES(#{name},#{kanaName},#{nickname},#{email},#{area},#{age},#{sex},#{remark},false)")
   @Options(useGeneratedKeys = true,keyProperty = "id")
   void registerStudent (Student student);
+  @Insert("INSERT INTO students_courses(student_id,course_name,course_start_at,course_end_at,status)"
+      + "VALUES(${studentId},#{courseName},#{courseStartAt},#{courseEndAt},#{status})")
+  @Options(useGeneratedKeys = true,keyProperty = "id")
+  void registerStudentCourses(StudentCourses studentCourses);
 }

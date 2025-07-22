@@ -1,6 +1,7 @@
 package raisetech.NewStudent.Management.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,7 +61,9 @@ public class StudentController {
 
   @GetMapping("/newStudent")
   public String newStudent(Model model){
-   model.addAttribute("studentDetail", new StudentDetail());
+    StudentDetail studentDetail = new StudentDetail();
+    studentDetail.setStudentCourses(Arrays.asList(new StudentCourses()));
+    model.addAttribute("studentDetail", studentDetail);
    return "registerStudent";
   }
   @PostMapping("/registerStudent")
