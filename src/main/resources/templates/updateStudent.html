@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>受講生詳細</title>
+</head>
+<body>
+<h1>受講生詳細</h1>
+
+<form th:action="@{/updateStudent}" th:object="${studentDetail}" method="post">
+  <table>
+    <tr>
+      <td>ID：</td>
+      <td><input type="text" th:field="*{student.id}" readonly /></td>
+    </tr>
+    <tr>
+      <td>名前：</td>
+      <td><input type="text" th:field="*{student.name}" required /></td>
+    </tr>
+    <tr>
+      <td>カナ名：</td>
+      <td><input type="text" th:field="*{student.kanaName}" /></td>
+    </tr>
+    <tr>
+      <td>ニックネーム：</td>
+      <td><input type="text" th:field="*{student.nickname}" required /></td>
+    </tr>
+    <tr>
+      <td>メールアドレス：</td>
+      <td><input type="email" th:field="*{student.email}" required /></td>
+    </tr>
+    <tr>
+      <td>地域：</td>
+      <td><input type="text" th:field="*{student.area}" /></td>
+    </tr>
+    <tr>
+      <td>年齢：</td>
+      <td><input type="number" th:field="*{student.age}" /></td>
+    </tr>
+    <tr>
+      <td>性別：</td>
+      <td><input type="text" th:field="*{student.sex}" /></td>
+    </tr>
+    <tr>
+      <td>備考：</td>
+      <td><input type="text" th:field="*{student.remark}" /></td>
+    </tr>
+    <tr>
+      <td>キャンセル：</td>
+      <td><input type="checkbox" th:field="*{student.canceled}" /></td>
+    </tr>
+    <tr>
+      <td>受講コース：</td>
+      <td><input type="text" th:field="*{studentCourses[0].courseName}" /></td>
+    </tr>
+  </table>
+
+  <br />
+  <button type="submit">更新</button>
+</form>
+</body>
+</html>
