@@ -19,6 +19,8 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
+	// Apache Commons Lang
+	implementation 'org.apache.commons:commons-lang3:3.17.0'
 	implementation 'org.springframework.boot:spring-boot-starter-web' // ← ★ これを追加！
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
