@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.transaction.annotation.Transactional;
 import raisetech.NewStudent.Management.data.Student;
 import raisetech.NewStudent.Management.data.StudentCourses;
 import raisetech.NewStudent.Management.domain.StudentDetail;
@@ -49,6 +50,7 @@ public class StudentService {
   }
 
   // 既存受講生の更新処理
+  @Transactional
   public void updateStudent(StudentDetail studentDetail) {
     repository.updateStudent(studentDetail.getStudent());
   }
