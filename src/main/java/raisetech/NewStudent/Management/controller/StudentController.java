@@ -1,5 +1,6 @@
 package raisetech.NewStudent.Management.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import java.util.Arrays;
@@ -42,6 +43,7 @@ public class StudentController {
    *
    * @return 受講生一覧（全件）
    */
+  @Operation(summary ="",description="受講生の一覧を検索します。")
   @GetMapping("/studentList")
   public List<StudentDetail> getStudentList() {
     //throws TestException {
@@ -91,6 +93,7 @@ public class StudentController {
    * @param studentDetail 受講生詳細
    * @return 実行結果
    */
+  @Operation(summary ="受講生登録",description="受講生を登録します。")
   @PostMapping("/registerStudent")
   public ResponseEntity<StudentDetail> registerStudent(@RequestBody @Valid StudentDetail studentDetail) {
     StudentDetail responseStudentDetail = service.registerStudent(studentDetail);
