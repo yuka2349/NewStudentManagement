@@ -60,8 +60,8 @@ public class StudentController {
    * @return 受講生
    */
   @GetMapping("/student/{id}")
-  public StudentDetail getStudent(@PathVariable @NotNull String id) {
-    return service.searchStudent(Integer.parseInt(id));
+  public StudentDetail getStudent(@PathVariable @NotNull Integer id) {
+    return service.searchStudent(id);
   }
 
   @GetMapping("/studentCourseList")

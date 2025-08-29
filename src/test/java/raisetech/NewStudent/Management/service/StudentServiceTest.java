@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
@@ -103,6 +104,26 @@ class StudentServiceTest {
     verify(repository, times(1)).updateStudent(student);
     verify(repository, times(1)).updateStudentCourse(studentCourses); // ★ repository にある実際のメソッド名に合わせて修正
   }
+
+  @Test
+  void 受講者の登録_初期化処理がされること() {
+    // arrange
+    int id = 999;
+    Student student = new Student();
+    student.setId(id);
+    StudentCourses studentCourse = new StudentCourses();
+
+    // act
+    sut.initStudentsCourse(studentCourse, student);
+
+    // assert
+    Assertions.assertEquals("999", studentCourse.getStudentId());
+    Assertions.assertEquals(LocalDateTime.now().getHour(),
+        studentCourse.getCourseStartAt().getHour());
+    Assertions.assertEquals(LocalDateTime.now().plusYears(1).getYear(),
+        studentCourse.getCourseEndAt().getYear());
+  }
+
 
 
 }
