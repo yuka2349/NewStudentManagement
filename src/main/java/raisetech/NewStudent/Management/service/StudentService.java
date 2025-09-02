@@ -77,7 +77,7 @@ public class StudentService {
 
 
   void initStudentsCourse(StudentCourses studentsCourse, Student student) {
-    studentsCourse.setStudentId(String.valueOf(student.getId()));
+    studentsCourse.setStudentId(student.getId());
     LocalDateTime now = LocalDateTime.now();
     studentsCourse.setCourseStartAt(now);
     studentsCourse.setCourseEndAt(now.plusYears(1));

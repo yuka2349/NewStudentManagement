@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="raisetech.NewStudent.Management.repository.StudentRepository">
- <!-- 受講生の全件検索 -->
+
+  <!-- 受講生の全件検索 -->
   <select id="search" resultType="raisetech.NewStudent.Management.data.Student">
     SELECT * FROM students
   </select>
@@ -11,14 +12,16 @@
     SELECT * FROM students WHERE id = #{id}
   </select>
 
-  <!-- 受講生コースの全件検索 -->
+  <!-- 受講生コースの全件検索（※新設） -->
   <select id="searchStudentCoursesList" resultType="raisetech.NewStudent.Management.data.StudentCourses">
     SELECT * FROM students_courses
   </select>
-<!-- 受講生コースの単一検索 -->
+
+  <!-- 受講生IDに基づく受講生コース情報の検索 -->
   <select id="searchStudentCourse" resultType="raisetech.NewStudent.Management.data.StudentCourses">
-    SELECT * FROM students_courses WHERE id = #{studentId}
+    SELECT * FROM students_courses WHERE student_id = #{studentId}
   </select>
+
 
   <!-- 受講生を削除 -->
   <delete id="deleteStudent" parameterType="int">
@@ -35,16 +38,16 @@
   <!-- 受講生を更新 -->
   <update id="updateStudent" parameterType="raisetech.NewStudent.Management.data.Student">
     UPDATE students
-    SET name       = #{name},
-    kana_name  = #{kanaName},
-    nickname   = #{nickname},
-    email      = #{email},
-    area       = #{area},
-    age        = #{age},
-    sex        = #{sex},
-    remark     = #{remark},
-    isDeleted = #{isDeleted},
-    is_canceled= #{canceled}
+    SET name        = #{name},
+    kana_name   = #{kanaName},
+    nickname    = #{nickname},
+    email       = #{email},
+    area        = #{area},
+    age         = #{age},
+    sex         = #{sex},
+    remark      = #{remark},
+    isDeleted   = #{isDeleted},
+    is_canceled = #{canceled}
     WHERE id = #{id}
   </update>
 
