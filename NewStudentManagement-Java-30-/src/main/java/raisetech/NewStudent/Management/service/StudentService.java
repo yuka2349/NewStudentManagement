@@ -5,10 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import org.springframework.transaction.annotation.Transactional;
 import raisetech.NewStudent.Management.controller.converter.StudentConverter;
-
 import raisetech.NewStudent.Management.data.Student;
 import raisetech.NewStudent.Management.data.StudentCourses;
 import raisetech.NewStudent.Management.domain.StudentDetail;
@@ -79,12 +77,11 @@ public class StudentService {
 
 
   void initStudentsCourse(StudentCourses studentsCourse, Student student) {
-    studentsCourse.setStudentId(student.getId());
+    studentsCourse.setStudentId(String.valueOf(student.getId()));
     LocalDateTime now = LocalDateTime.now();
     studentsCourse.setCourseStartAt(now);
     studentsCourse.setCourseEndAt(now.plusYears(1));
   }
-
 
   /**
    * 受講生詳細の更新を行います。

@@ -8,14 +8,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,12 +24,10 @@ import raisetech.NewStudent.Management.exception.TestException;
 import raisetech.NewStudent.Management.repository.StudentRepository;
 import raisetech.NewStudent.Management.service.StudentService;
 
-
 /**
  * 受講生の検索や登録、更新などを行うRest APIとして実行されるcontrollerです。
  */
 @Validated
-
 @RestController
 public class StudentController {
 
@@ -50,19 +46,11 @@ public class StudentController {
   @Operation(summary ="",description="受講生の一覧を検索します。")
   @GetMapping("/studentList")
   public List<StudentDetail> getStudentList() {
-
     //throws TestException {
     // 今はこのAPIを使わせない要件なので、明示的に例外を投げる（最小実装）
     //throw new TestException("現在のこのAPIは利用できません。URLは「students」を利用してください");
     // もし将来有効化するなら下記に切り替え：
      return service.searchStudentList();
-
-
-    return service.searchStudentList();
-    List<Student> students = service.searchStudentList();
-    List<StudentCourses> studentCourses = service.searchStudentCourseList();
-        return converter.convertStudentDetails(students, studentCourses);
-
   }
 
   /**

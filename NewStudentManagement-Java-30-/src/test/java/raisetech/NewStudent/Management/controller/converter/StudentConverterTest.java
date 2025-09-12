@@ -29,7 +29,7 @@ class StudentConverterTest {
 
     StudentCourses studentCourses = new StudentCourses();
     studentCourses.setId(1);
-    studentCourses.setStudentId(1);
+    studentCourses.setStudentId("1");
     studentCourses.setCourseName("Javaコース");
     studentCourses.setCourseStartAt(LocalDateTime.now());
     studentCourses.setCourseEndAt(LocalDateTime.now().plusYears(1));
@@ -54,7 +54,7 @@ class StudentConverterTest {
 
     StudentCourses studentCourses = new StudentCourses();
     studentCourses.setId(1);
-    studentCourses.setStudentId(2);
+    studentCourses.setStudentId("2");
     studentCourses.setCourseName("Javaコース");
     studentCourses.setCourseStartAt(LocalDateTime.now());
     studentCourses.setCourseEndAt(LocalDateTime.now().plusYears(1));
